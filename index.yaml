@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  kubectl-ai:
+  - apiVersion: v2
+    appVersion: master
+    created: "2025-10-29T17:04:25.492378427Z"
+    description: A Helm chart for Kubernetes
+    digest: f1683d5f9cf69104a57d8605b437c3c402e16728c8ed0b848ce322b549fa4bde
+    name: kubectl-ai
+    type: application
+    urls:
+    - kubectl-ai-0.1.0.tgz
+    version: 0.1.0
+generated: "2025-10-29T17:04:25.49143079Z"
