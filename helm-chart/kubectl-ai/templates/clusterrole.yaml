@@ -1,0 +1,18 @@
+{{- if and .Values.rbac.create .Values.rbac.clusterWide }}
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: {{ include "kubectl-ai.fullname" . }}-role
+  labels:
+    {{- include "kubectl-ai.labels" . | nindent 4 }}
+rules:
+{{- if .Values.rbac.rules }}
+{{- toYaml .Values.rbac.rules | nindent 0 }}
+{{- else }}
+- apiGroups: ["*"]
+  resources: ["*"]
+  verbs: ["*"]
+{{- end }}
+{{- end }}
+
+
