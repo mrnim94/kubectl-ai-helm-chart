@@ -70,6 +70,16 @@ env: []
 #       name: gemini-api-key
 #       key: GEMINI_API_KEY
 
+# Ensure a bash-compatible path exists for tools that invoke /bin/bash.
+# This creates a symlink from /bin/bash to /bin/sh if bash is missing.
+lifecycle:
+  postStart:
+    exec:
+      command:
+        - /bin/sh
+        - -c
+        - 'if [ ! -e /bin/bash ]; then ln -s /bin/sh /bin/bash; fi'
+
 # This is for setting up a service more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/
 service:
   enabled: false
