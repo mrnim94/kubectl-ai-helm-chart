@@ -52,10 +52,6 @@ spec:
           env:
             {{- toYaml . | nindent 12 }}
           {{- end }}
-          {{- with .Values.lifecycle }}
-          lifecycle:
-            {{- toYaml . | nindent 12 }}
-          {{- end }}
           {{- if .Values.service.enabled }}
           ports:
             - name: http
